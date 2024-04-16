@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        padding: 0;
+        margin: 0px;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+      }
+
+      .main-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        /* grid-template-rows: 700px 100px; */
+      }
+      .img0 {
+        width: 650px;
+        height: 500px;
+      }
+      .img-card {
+        grid-row: 1/2;
+        grid-column: 1/2;
+      }
+      .img-container {
+        /* background-color: #ddd; */
+        width: 600px;
+        height: 80px;
+        display: flex;
+        gap: 30px;
+        justify-content: space-between;
+      }
+
+      .el {
+        width: 100px;
+        height: 75px;
+        cursor: pointer;
+
+        border-radius: 10px;
+      }
+      .border {
+        border: #444 solid;
+      }
+
+      .product-container {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 30px;
+        width: 700px;
+        grid-row: 1 /2;
+        grid-column: 2 /3;
+      }
+
+      .product-price {
+        grid-row: 2 /3;
+        grid-column: 2/3;
+      }
+      .product-price {
+        display: flex;
+        flex-basis: 100px;
+
+        align-items: end;
+        justify-content: start;
+        align-items: center;
+      }
+
+      .price {
+        margin-right: 100px;
+      }
+
+      .cart {
+        margin-left: 50px;
+      }
+
+      .button {
+        padding: 25px;
+        background-color: #444;
+        color: #ddd;
+        width: 170px;
+        font-size: 19px;
+        border: none;
+        cursor: pointer;
+        text-transform: uppercase;
+        border-radius: 10px;
+      }
+
+      .button:hover {
+        color: #444;
+        background-color: #ddd;
+        transition: 0.5s;
+        font-size: 21px;
+        padding: 25px;
+        font-weight: bold;
+      }
+      .price {
+        font-family: sans-serif;
+        font-size: 30px;
+        align-self: flex-start;
+      }
+
+      .product-colors {
+        display: flex;
+        flex-basis: 30px;
+        gap: 10px;
+        margin-top: 50px;
+      }
+
+      .color {
+        height: 25px;
+        width: 25px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .color-black {
+        background-color: black;
+      }
+      .color-blue {
+        background-color: #2f6ee2;
+      }
+      .color-red {
+        background-color: #ec2f2f;
+      }
+      .color-yellow {
+        background-color: #f0bf1e;
+      }
+      .color-green {
+        background-color: #90cc20;
+      }
+      .color-brown {
+        background-color: #885214;
+      }
+      .select-color {
+        border: #444 solid;
+      }
+      .table {
+        border: 1px solid #444;
+        font-size: 18px;
+        width: 100%;
+        border-collapse: collapse;
+        height: 250px;
+        line-height: 2;
+        word-spacing: 2px;
+      }
+      .table-div {
+        margin-top: 30px;
+        margin-right: 30px;
+        grid-column: 1/-1;
+      }
+      .table-caption {
+        font-weight: bold;
+        margin-bottom: 20px;
+        font-size: 20px;
+        margin-right: 90%;
+      }
+
+      .stock {
+        font-weight: bold;
+        width: 100px;
+        height: 30px;
+      }
+      .in-stock {
+        color: #90cc20;
+      }
+      .out-stock {
+        color: #ec2f2f;
+      }
+      .description-title {
+        margin-top: 10px;
+        font-size: 47px;
+        letter-spacing: -1px;
+      }
+      .description-body {
+        width: 600px;
+        margin-right: 90px;
+        font-size: 17px;
+        line-height: 1.7;
+      }
+
+      .hidden {
+        display: none;
+      }
+    </style>
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="img-card">
+        <img src="{%OVERVIEWIMG%}" class="img0" />
+        <link rel="icon" href="{%OVERVIEWIMG%}" />
+
+        <div class="img-container">
+          <img src="{%OVERVIEWIMG%}" class="el el--1 border" />
+          <link rel="icon" href="{%OVERVIEWIMG%}" class="link" />
+          <img src="{%PRODUCTIMGFIRST%}" class="el el--2 border" />
+          <link rel="icon" href="{%PRODUCTIMGFIRST%} " class="link" />
+
+          <img src="{%PRODUCTIMGSEC%}" class="el el--3 border" />
+          <link rel="icon" href="{%PRODUCTIMGSEC%}" class="link" />
+
+          <img src="{%PRODUCTIMGTHIRD%}" class="el el--4 border" />
+          <link rel="icon" href="{%PRODUCTIMGTHIRD%}" class="link" />
+
+          <img src="{%PRODUCTIMGFOURTH%}" class="el el--5 border" />
+          <link rel="icon" href="{%PRODUCTIMGFOURTH%}" class="link" />
+        </div>
+      </div>
+
+      <div class="product-container">
+        <h1 class="description-title">{%DESCRIPTIONTITLE%}</h1>
+        <p class="description-body">{%DESCRIPTION%}</p>
+        <div class="product-colors" id="color-id"></div>
+        <div class="stock"></div>
+        <div class="product-price">
+          <h2 class="price">{%PRICE%}</h2>
+          <button class="button buy">Buy Now</button>
+
+          <button class="button cart">Add Cart</button>
+        </div>
+      </div>
+      <div class="table-div">
+        <table border="1" class="table">
+          <tbody id="table"></tbody>
+          <caption class="table-caption">
+            Specifications
+          </caption>
+        </table>
+      </div>
+    </div>
+
+    <script>
+      const color = "{%COLOR%}".split(",");
+
+      if (color !== "undefined") {
+        for (let i = 0; i < color.length; i++) {
+          const elementDiv = document.createElement("div");
+          elementDiv.classList.add("color", "select-color");
+          elementDiv.style.backgroundColor = `${color[i]}`;
+          const place = document.getElementById("color-id");
+          place.appendChild(elementDiv);
+        }
+      }
+
+      const td = "{%TD%}".split(",");
+      const th = "{%TH%}".split(",");
+      console.log(td[0]);
+
+      if (td !== "undefined") {
+        console.log("hi");
+        for (let i = 0; i < td.length; i++) {
+          const elementTr = document.createElement("tr");
+          const elementTd = document.createElement("td");
+          const elementTh = document.createElement("th");
+          const textTd = document.createTextNode(td[i]);
+          const textTh = document.createTextNode(th[i]);
+          elementTd.appendChild(textTd);
+          elementTh.appendChild(textTh);
+
+          elementTr.appendChild(elementTd);
+          elementTr.appendChild(elementTh);
+          const place = document.getElementById("table");
+          place.appendChild(elementTr);
+        }
+      }
+
+      const mainImg = document.querySelector(".img0");
+      const img = document.querySelectorAll(".el");
+      const border = document.querySelectorAll(".border");
+      const selectColor = document.querySelectorAll(".select-color");
+      const stock = document.querySelector(".stock");
+      console.log(stock);
+
+      for (let i = 0; i < img.length; i++) {
+        img[i].classList.remove("border");
+
+        img[i].addEventListener("mouseover", function () {
+          mainImg.src = img[i].src;
+          img[i].classList.add("border");
+        });
+        img[i].addEventListener("mouseout", function () {
+          img[i].classList.remove("border");
+        });
+      }
+
+      for (let i = 0; i < selectColor.length; i++) {
+        selectColor[i].classList.remove("select-color");
+        selectColor[i].addEventListener("click", function (e) {
+          stock.classList.remove("in-stock");
+          stock.classList.remove("out-stock");
+          // Remove "select-color" class from all elements
+          for (let j = 0; j < selectColor.length; j++) {
+            selectColor[j].classList.remove("select-color");
+          }
+          // Add "select-color" class to the clicked element
+          selectColor[i].classList.add("select-color");
+
+          const index = Array.from(selectColor).indexOf(this); //this = e.target
+          console.log("Clicked item index:", index);
+          if (index === 0) {
+            stock.textContent = "In Stock";
+            stock.classList.add("in-stock");
+          } else if (index === 1) {
+            stock.textContent = "In Stock";
+            stock.classList.add("in-stock");
+          } else if (index === 2) {
+            stock.textContent = "In Stock";
+            stock.classList.add("in-stock");
+          } else if (index === 3) {
+            stock.textContent = "Out of Stock";
+            stock.classList.add("out-stock");
+          } else if (index === 4) {
+            stock.textContent = "In Stock";
+            stock.classList.add("in-stock");
+          } else if (index === 5) {
+            stock.textContent = "Out of Stock";
+            stock.classList.add("out-stock");
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

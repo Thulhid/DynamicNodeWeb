@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        padding-top: 85px;
+        font-family: "Inter", sans-serif;
+      }
+
+      .container {
+        /* background-color: #ddd; */
+
+        width: 90%;
+        height: 70%;
+        /* CSS-GRID */
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 400px 400px;
+        gap: 100px;
+      }
+      .spacing {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 25%;
+      }
+      .card {
+        text-align: center;
+      }
+      .product-name {
+        font-size: 18px;
+        padding: 0 40px;
+      }
+
+      .shadow {
+        box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .img {
+        margin: 10px;
+        width: 300px;
+        height: 250px;
+      }
+      a:any-link {
+        display: inline-block;
+
+        text-decoration: none;
+        color: #1098ad;
+        font-size: 20px;
+
+        transition: 0.4s;
+      }
+      a:hover {
+        text-decoration: none;
+        color: #0a6074;
+        font-size: 22px;
+      }
+
+      .header {
+        display: flex;
+        flex-direction: column;
+        top: 0px;
+
+        font-size: 22px;
+        padding-left: 20px;
+        padding-top: 10px;
+        font-style: italic;
+        background-color: #444;
+        color: white;
+        position: fixed;
+        width: 100%;
+      }
+      .header-info {
+        margin-top: 10px;
+        font-size: 12px;
+        color: #ddd;
+      }
+
+      span {
+        margin-right: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>THULHID.lk</h1>
+      <div class="header-info">
+        <span>☎ Phone: 011-2-488842</span>
+        <span>✆ Hotline: 071-177-981</span>
+      </div>
+    </div>
+    <div class="container">{%PRODUCT_CARDS%}</div>
+    <script>
+      "use strict";
+
+      const card = document.querySelectorAll(".card");
+      const productName = document.querySelectorAll(".product-name");
+      const overviewLink = document.querySelectorAll(".overview-link");
+
+      for (let i = 0; i < card.length; i++) {
+        card[i].classList.remove("bold");
+        card[i].classList.remove("shadow");
+
+        console.log(card[i]);
+        overviewLink[i].addEventListener("mouseenter", function () {
+          card[i].style.justifySelf = "center";
+          card[i].classList.add("bold");
+          card[i].classList.add("shadow");
+        });
+        overviewLink[i].addEventListener("mouseout", function () {
+          card[i].style.border = "none";
+          card[i].style.justifySelf = "stretch";
+          card[i].classList.remove("bold");
+          card[i].classList.remove("shadow");
+        });
+      }
+    </script>
+  </body>
+</html>
